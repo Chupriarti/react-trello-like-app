@@ -49,7 +49,14 @@ function App() {
 
   return (
     <div className="App">
-      React Trello Like App
+      {boards.map(board => 
+        <div className='board'>
+          <div className="board__title">{board.title}</div>
+          {board.items.map(item => 
+            <div className='item'>{item.title}</div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
