@@ -47,6 +47,9 @@ function App() {
     }
   ])
 
+  const [currentBoard, setCurrentBoard] = React.useState(null)
+  const [currentItem, setCurrentItem] = React.useState(null)
+
   function onDragOverHandler (e) {
     e.preventDefault()
     if (e.target.className == 'item'){
@@ -59,7 +62,8 @@ function App() {
   }
 
   function onDragStartHandler (e, board, item) {
-
+    setCurrentBoard(board)
+    setCurrentItem(item)
   }
 
   function onDragEndHandler (e) {
@@ -68,6 +72,19 @@ function App() {
 
   function onDropHandler (e, board, item) {
     e.preventDefault()
+    const currentIndex = currentBoard.items.indexOf (currentItem)
+    currentBoard.items.splice(currentIndex, 1)
+    const dropIndex = board.items.indexOf (item)
+    board.items.splice(dropIndex + 1, 0, currentItem)
+    setBoadrs(boards.map(b => {
+      if (b.id === board.id){
+        return board
+      }
+      if (b.id === currentBoard.id){
+        return currentBoard
+      }
+      return b
+    }))
   }
 
   return (
