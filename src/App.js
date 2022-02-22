@@ -73,7 +73,7 @@ function App() {
   return (
     <div className="App">
       {boards.map(board => 
-        <div className='board'>
+        <div key={board.id} className='board'>
           <div className="board__title">{board.title}</div>
           {board.items.map(item => 
             <div
@@ -84,6 +84,7 @@ function App() {
               onDragStart={e => onDragStartHandler (e)}
               onDragEnd={e => onDragEndHandler (e)}
               onDrop={e => onDropHandler (e, board, item)}
+              key={item.id}
             >
               {item.title}
             </div>
