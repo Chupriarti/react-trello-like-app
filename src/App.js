@@ -47,6 +47,26 @@ function App() {
     }
   ])
 
+  function onDragOverHandler (e, board, item) {
+
+  }
+
+  function onDragLeaveHandler (e) {
+
+  }
+
+  function onDragStartHandler (e) {
+
+  }
+
+  function onDragEndHandler (e) {
+
+  }
+
+  function onDropHandler (e, board, item) {
+
+  }
+
   return (
     <div className="App">
       {boards.map(board => 
@@ -56,6 +76,11 @@ function App() {
             <div
               draggable={true}
               className='item'
+              onDragOver={e => onDragOverHandler (e, board, item)}
+              onDragLeave={e => onDragLeaveHandler (e)}
+              onDragStart={e => onDragStartHandler (e)}
+              onDragEnd={e => onDragEndHandler (e)}
+              onDrop={e => onDropHandler (e, board, item)}
             >
               {item.title}
             </div>
