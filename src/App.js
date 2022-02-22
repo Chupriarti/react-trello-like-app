@@ -49,10 +49,13 @@ function App() {
 
   function onDragOverHandler (e, board, item) {
     e.preventDefault()
+    if (e.target.className == 'item'){
+      e.target.style.boxShadow = '0 4px 3px gray'
+    }
   }
 
   function onDragLeaveHandler (e) {
-
+    e.target.style.boxShadow = 'none'
   }
 
   function onDragStartHandler (e) {
@@ -60,7 +63,7 @@ function App() {
   }
 
   function onDragEndHandler (e) {
-
+    e.target.style.boxShadow = 'none'
   }
 
   function onDropHandler (e, board, item) {
