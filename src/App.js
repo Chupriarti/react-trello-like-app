@@ -48,7 +48,7 @@ function App() {
   ])
 
   function onDragOverHandler (e, board, item) {
-
+    e.preventDefault()
   }
 
   function onDragLeaveHandler (e) {
@@ -64,7 +64,7 @@ function App() {
   }
 
   function onDropHandler (e, board, item) {
-
+    e.preventDefault()
   }
 
   return (
