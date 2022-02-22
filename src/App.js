@@ -47,7 +47,7 @@ function App() {
     }
   ])
 
-  function onDragOverHandler (e, board, item) {
+  function onDragOverHandler (e) {
     e.preventDefault()
     if (e.target.className == 'item'){
       e.target.style.boxShadow = '0 4px 3px gray'
@@ -58,7 +58,7 @@ function App() {
     e.target.style.boxShadow = 'none'
   }
 
-  function onDragStartHandler (e) {
+  function onDragStartHandler (e, board, item) {
 
   }
 
@@ -79,9 +79,9 @@ function App() {
             <div
               draggable={true}
               className='item'
-              onDragOver={e => onDragOverHandler (e, board, item)}
+              onDragOver={e => onDragOverHandler (e)}
               onDragLeave={e => onDragLeaveHandler (e)}
-              onDragStart={e => onDragStartHandler (e)}
+              onDragStart={e => onDragStartHandler (e, board, item)}
               onDragEnd={e => onDragEndHandler (e)}
               onDrop={e => onDropHandler (e, board, item)}
               key={item.id}
