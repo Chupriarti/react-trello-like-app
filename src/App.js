@@ -53,7 +53,12 @@ function App() {
         <div className='board'>
           <div className="board__title">{board.title}</div>
           {board.items.map(item => 
-            <div className='item'>{item.title}</div>
+            <div
+              draggable={true}
+              className='item'
+            >
+              {item.title}
+            </div>
           )}
         </div>
       )}
