@@ -85,6 +85,7 @@ function App() {
       }
       return b
     }))
+    e.target.style.boxShadow = 'none'
   }
 
   return (
